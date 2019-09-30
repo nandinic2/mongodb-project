@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Community Events Board</title>
+    </head>
+    <body>
+      <h1>Community Events Board</h1>
+      <h2>Username: {{username}}</h2>
+      <a href="/input">Input</a>
+      <div class="event-list">
+        <ol>
+            <!-- % is specifically for jinja templating for loops-->
+          {% for event in events %}
+          <!-- % is specifically for jinja templating for loops-->
+            <li>{{ event.name }} - {{ event.date }}</li>
+          {% endfor %} <!-- have to end in jinja-->
+        </ol>
+      </div>
+      <p>Do you want to clear the database?</p>
+      <form method= "post" action="/deleteAll">
+        <p>Password</p>
+        <input type="password" name="password" maxlength="8">
+        <input type="submit" value="Submit">
+      </form>
+    </body>
+</html>
